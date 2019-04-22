@@ -22,14 +22,14 @@ namespace 服务器端Server_VS2019_.Server
 
         public void Start()//开启监听服务器端的数据
         {
-            clientSocket.BeginReceive(null, 0, 0, SocketFlags.None, ReceiveCallBack,null);
+            clientSocket.BeginReceive(, , , SocketFlags.None, ReceiveCallBack,null);
         }
 
         private void ReceiveCallBack(IAsyncResult ar)
         {
             try
             {
-                int count = clientSocket.EndReceive(ar);
+                int count = clientSocket.EndReceive(ar);//接受到的数据长度
                 if (count == 0) //接受到数据长度为0 说明断开连接
                 {
                     Close();

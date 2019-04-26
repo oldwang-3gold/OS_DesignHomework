@@ -7,29 +7,34 @@ using UnityEngine.UI;
 
 public class LoadScene : MonoBehaviour
 {
-    public static LoadScene _instance;
     public GameObject loadPanel;
+    public Text InputName;
     public Text proText;
     public Scrollbar process;
 
     void Start()
     {
-        _instance = this;
         loadPanel.SetActive(false);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            LoadNewScene();
-        }
+        //if (Input.GetKeyDown(KeyCode.A))
+        //{
+        //    LoadNewScene();
+        //}
     }
 
     public void LoadNewScene()
     {
-        StartCoroutine(StartLoading("Main"));//调用协程
+        if (InputName.text == "")
+        {
+            InputName.text = "无名氏";
+        }
+        PlayerPrefs.SetString("人物名字",InputName.text);
+        StartCoroutine(StartLoading("Test"));//调用协程
         loadPanel.SetActive(true);
+
     }
 
     private void SetLoadingPercentage(int displayProgress)

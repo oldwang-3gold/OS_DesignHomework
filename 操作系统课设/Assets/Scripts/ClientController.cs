@@ -14,11 +14,20 @@ public class ClientController : MonoBehaviour
     public Text ipAddress;
     public Text port;
     public Text context;
+    public Text playerName;
     private Socket clientSocket;
     public InputField inputField;
+    public GameObject ConnectPanel;
+    public GameObject ChatContext;
     private Thread t;
     private byte[] data = new byte[1024];//接受服务器端消息容器
     private string message = "";
+
+    void Awake()
+    {
+        playerName.text = PlayerPrefs.GetString("人物名字");
+        ChatContext.SetActive(false);
+    }
 
     void Update()
     {
@@ -33,6 +42,11 @@ public class ClientController : MonoBehaviour
             clientSocket.Close();
             Application.Quit();
         }
+
+        if (Input.GetKey(KeyCode.Return))
+        {
+            OnBtnSend();
+        }
     }
 
     public void BtnConnected()
@@ -43,6 +57,10 @@ public class ClientController : MonoBehaviour
             IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Parse(ipAddress.text), int.Parse(port.text));
             clientSocket.Connect(ipEndPoint);
             context.text = "成功连接上服务器端" + "\n";
+            string sucessMessage = "欢迎" + playerName.text + "进入聊天室\n";
+            SendMessage(sucessMessage);
+            ChatContext.SetActive(true);
+            ConnectPanel.SetActive(false);
         }
         catch (Exception e)
         {
@@ -59,8 +77,6 @@ public class ClientController : MonoBehaviour
 
     new void SendMessage(string message)
     {
-        string name = PlayerPrefs.GetString("人物名字");
-        message = name + ":" + message;
         byte[] data = Encoding.UTF8.GetBytes(message);
         clientSocket.Send(data);
     }
@@ -81,9 +97,15 @@ public class ClientController : MonoBehaviour
 
     public void OnBtnSend()
     {
-        SendMessage(inputField.text);
+        if (inputField.text == "") return;
+        string message= playerName.text + ":" + inputField.text;
+        SendMessage(message);
         inputField.text = "";//清空
     }
 
+    public void OnBtnClearScreen()
+    {
+        context.text = "";
+    }
     
 }

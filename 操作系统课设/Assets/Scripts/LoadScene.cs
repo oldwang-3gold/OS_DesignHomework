@@ -23,6 +23,7 @@ public class LoadScene : MonoBehaviour
         //{
         //    LoadNewScene();
         //}
+      
     }
 
     public void LoadNewScene()

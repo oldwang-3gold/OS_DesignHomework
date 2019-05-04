@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-D:/Unity练习/OS_DesignHomework/手机端安装包/1.apk
+D:/Unity练习/OS_DesignHomework/手机端安装包/tcp.apk
 SceneListBegin?
 Assets/Scenes/Menu.unity
 Assets/Scenes/Test.unity

@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Unity服务器TCP聊天室
@@ -40,7 +41,7 @@ namespace Unity服务器TCP聊天室
             {
                 string hostName = Dns.GetHostName(); //获取主机名
                 IPHostEntry ipHostEntry = Dns.GetHostEntry(hostName);
-                for (int i = 0; i < ipHostEntry.AddressList.Length; i++) //从IP地址列表筛选出ipv4类型的IP地址
+                for (int i = ipHostEntry.AddressList.Length-1; i >=0; i--) //从IP地址列表筛选出ipv4类型的IP地址
                 {
                     if (ipHostEntry.AddressList[i].AddressFamily == AddressFamily.InterNetwork)
                     {
@@ -58,6 +59,25 @@ namespace Unity服务器TCP聊天室
             }
             
         }
+
+        public static void GetClientSum()
+        {
+            while(true)
+            {
+                string sum = Console.ReadLine();
+                if (sum == "sum")
+                {
+                    Console.WriteLine("当前客户端人数为:" + clientList.Count);
+                }
+                else
+                {
+                    Console.WriteLine("无此命令");
+                }
+            }        
+        }
+
+
+
         static void Main(string[] args)
         {
             Socket tcpServer=new Socket(AddressFamily.InterNetwork,SocketType.Stream,ProtocolType.Tcp);
@@ -68,14 +88,16 @@ namespace Unity服务器TCP聊天室
             tcpServer.Bind(new IPEndPoint(IPAddress.Parse(ipAddress), 7788));
             tcpServer.Listen(100);
             Console.WriteLine("server running");
-
-
+            Thread t = new Thread(GetClientSum);
+            t.Start();
             while (true)//死循环等待客户端连接进来
             {
+                
                 Socket clientSocket = tcpServer.Accept();//直到有客户端连进来才会进行下面操作
                 Console.WriteLine("a client connected!");
                 Client client=new Client(clientSocket);//把与每个客户端通信的逻辑在client类里实现               
                 clientList.Add(client);//添加到集合中
+                
             }      
         }
     }

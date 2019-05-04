@@ -77,8 +77,16 @@ public class ClientController : MonoBehaviour
 
     new void SendMessage(string message)
     {
-        byte[] data = Encoding.UTF8.GetBytes(message);
-        clientSocket.Send(data);
+        try
+        {
+            byte[] data = Encoding.UTF8.GetBytes(message);
+            clientSocket.Send(data);
+        }
+        catch
+        {
+            context.text += "\n\n服务器端已关闭";
+        }
+        
     }
 
     void ReceiveMessage()

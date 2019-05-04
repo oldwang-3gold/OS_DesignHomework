@@ -11,6 +11,7 @@ public class LoadScene : MonoBehaviour
     public Text InputName;
     public Text proText;
     public Scrollbar process;
+    public GameObject butEnter;
 
     void Start()
     {
@@ -19,6 +20,14 @@ public class LoadScene : MonoBehaviour
 
     void Update()
     {
+        if (InputName.text.Length > 0)
+        {
+            butEnter.SetActive(true);
+        }
+        else
+        {
+            butEnter.SetActive(false);
+        }
         //if (Input.GetKeyDown(KeyCode.A))
         //{
         //    LoadNewScene();
@@ -28,14 +37,9 @@ public class LoadScene : MonoBehaviour
 
     public void LoadNewScene()
     {
-        if (InputName.text == "")
-        {
-            InputName.text = "无名氏";
-        }
         PlayerPrefs.SetString("人物名字",InputName.text);
         StartCoroutine(StartLoading("Test"));//调用协程
         loadPanel.SetActive(true);
-
     }
 
     private void SetLoadingPercentage(int displayProgress)

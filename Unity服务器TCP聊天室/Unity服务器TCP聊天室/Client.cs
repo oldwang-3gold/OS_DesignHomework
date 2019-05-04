@@ -27,16 +27,23 @@ namespace Unity服务器TCP聊天室
             //一直接收客户端的数据
             while (true)
             {
-                //在接收数据之前 判断一下socket链接是否断开
-                //if (clientSocket.Poll(10, SelectMode.SelectRead))//判断能否从客户端读取消息
+               // 在接收数据之前 判断一下socket链接是否断开
+                //if (clientSocket.Poll(-1, SelectMode.SelectRead))//判断能否从客户端读取消息
                 //{
                 //    clientSocket.Close();
                 //    break;//跳出循环 终止线程的执行
                 //}
 
+
+
                 try
                 {
                     int length = clientSocket.Receive(data); //Receive用来承接发送过来的数据
+                    if (length == 0)//接受空消息
+                    {
+                        clientSocket.Close();
+                        break; 
+                    }             
                     string message = Encoding.UTF8.GetString(data, 0, length); //将接收到数据转换为string
 
                     //接收到数据的时候 要把这个数据分发到客户端(聊天室)

@@ -63,6 +63,7 @@ namespace Unity服务器TCP聊天室
             Socket tcpServer=new Socket(AddressFamily.InterNetwork,SocketType.Stream,ProtocolType.Tcp);
 
             string ipAddress = GetLocalIP();
+         //   string ipAddress = "192.168.43.171";
             //绑定IP地址使用本地的 通过控制台cmd中 ipconfig找到ipv4地址 端口号设置成四位数最好
             tcpServer.Bind(new IPEndPoint(IPAddress.Parse(ipAddress), 7788));
             tcpServer.Listen(100);

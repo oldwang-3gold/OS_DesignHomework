@@ -8,11 +8,8 @@ D:\Unity练习\OS_DesignHomework\操作系统课设\Temp\bin\Debug\System.Runtim
 D:\Unity练习\OS_DesignHomework\操作系统课设\Temp\bin\Debug\System.Xml.dll
 D:\Unity练习\OS_DesignHomework\操作系统课设\Temp\bin\Debug\System.Xml.Linq.dll
 D:\Unity练习\OS_DesignHomework\操作系统课设\Temp\bin\Debug\Unity.Locator.dll
-D:\Unity练习\OS_DesignHomework\操作系统课设\Temp\bin\Debug\Unity.PackageManagerUI.Editor.dll
 D:\Unity练习\OS_DesignHomework\操作系统课设\Temp\bin\Debug\Unity.TextMeshPro.dll
-D:\Unity练习\OS_DesignHomework\操作系统课设\Temp\bin\Debug\Unity.TextMeshPro.Editor.dll
 D:\Unity练习\OS_DesignHomework\操作系统课设\Temp\bin\Debug\UnityEditor.dll
-D:\Unity练习\OS_DesignHomework\操作系统课设\Temp\bin\Debug\UnityEditor.StandardEvents.dll
 D:\Unity练习\OS_DesignHomework\操作系统课设\Temp\bin\Debug\UnityEngine.AccessibilityModule.dll
 D:\Unity练习\OS_DesignHomework\操作系统课设\Temp\bin\Debug\UnityEngine.AIModule.dll
 D:\Unity练习\OS_DesignHomework\操作系统课设\Temp\bin\Debug\UnityEngine.Analytics.dll

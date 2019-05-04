@@ -107,5 +107,11 @@ public class ClientController : MonoBehaviour
     {
         context.text = "";
     }
+
+    public void OnBtnQuit()
+    {
+        clientSocket.Close();
+        Application.Quit();
+    }
     
 }

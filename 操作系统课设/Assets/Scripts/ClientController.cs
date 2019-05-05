@@ -118,6 +118,8 @@ public class ClientController : MonoBehaviour
 
     public void OnBtnQuit()
     {
+        string quitMessage = playerName.text + "已经离开聊天室";
+        SendMessage(quitMessage);
         clientSocket.Close();
         Application.Quit();
     }

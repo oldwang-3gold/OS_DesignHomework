@@ -74,5 +74,6 @@ namespace Unity服务器TCP聊天室
         {
             get { return clientSocket.Connected; }
         }
+
     }
 }

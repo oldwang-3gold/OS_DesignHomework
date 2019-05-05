@@ -60,21 +60,21 @@ namespace Unity服务器TCP聊天室
             
         }
 
-        public static void GetClientSum()
-        {
-            while(true)
-            {
-                string sum = Console.ReadLine();
-                if (sum == "sum")
-                {
-                    Console.WriteLine("当前客户端人数为:" + clientList.Count);
-                }
-                else
-                {
-                    Console.WriteLine("无此命令");
-                }
-            }        
-        }
+        //public static void GetClientSum()
+        //{
+        //    while(true)
+        //    {
+        //        string sum = Console.ReadLine();
+        //        if (sum == "sum")
+        //        {
+        //            Console.WriteLine("当前客户端人数为:" + clientList.Count);
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("无此命令");
+        //        }
+        //    }        
+        //}
 
 
 
@@ -83,13 +83,14 @@ namespace Unity服务器TCP聊天室
             Socket tcpServer=new Socket(AddressFamily.InterNetwork,SocketType.Stream,ProtocolType.Tcp);
 
             string ipAddress = GetLocalIP();
-         //   string ipAddress = "192.168.43.171";
+            //string ipAddress = "192.168.43.171";
+
             //绑定IP地址使用本地的 通过控制台cmd中 ipconfig找到ipv4地址 端口号设置成四位数最好
             tcpServer.Bind(new IPEndPoint(IPAddress.Parse(ipAddress), 7788));
             tcpServer.Listen(100);
             Console.WriteLine("server running");
-            Thread t = new Thread(GetClientSum);
-            t.Start();
+            //Thread t = new Thread(GetClientSum);
+            //t.Start();
             while (true)//死循环等待客户端连接进来
             {
                 

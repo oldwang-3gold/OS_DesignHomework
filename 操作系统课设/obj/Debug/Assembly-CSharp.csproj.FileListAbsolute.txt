@@ -168,3 +168,6 @@ D:\Unity练习\OS_DesignHomework\操作系统课设\obj\Debug\Assembly-CSharp.cs
 D:\Unity练习\OS_DesignHomework\操作系统课设\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\Unity练习\OS_DesignHomework\操作系统课设\obj\Debug\Assembly-CSharp.dll
 D:\Unity练习\OS_DesignHomework\操作系统课设\obj\Debug\Assembly-CSharp.pdb
+D:\Unity练习\OS_DesignHomework\操作系统课设\Temp\bin\Debug\Unity.PackageManagerUI.Editor.dll
+D:\Unity练习\OS_DesignHomework\操作系统课设\Temp\bin\Debug\Unity.TextMeshPro.Editor.dll
+D:\Unity练习\OS_DesignHomework\操作系统课设\Temp\bin\Debug\UnityEditor.StandardEvents.dll
